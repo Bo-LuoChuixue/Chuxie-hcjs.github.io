@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08CSS引入方式</title>
+    <style>/* 内部样式,只能当前页面复用 */
+        h2{color: gold}/* 标签名选择器 */
+    </style>
+
+    <!-- 引入外部的css样式文件 -->
+    <link rel="stylesheet" href="my.css">
+</head>
+<body>
+<!-- 内联样式 不能复用 -->
+<h1 style="color: greenyellow">内联样式1</h1>
+<h1 style="color: greenyellow">内联样式2</h1>
+<h2>内部样式</h2>
+<h3>外部样式</h3>
+</body>
+</html>
