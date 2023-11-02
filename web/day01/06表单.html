@@ -15,7 +15,32 @@
     <br>
     密码:<input type="password" name="password" maxlength="6" placeholder="请输入密码">
     <br>
+    性别<input type="radio" name="gender" value="man">男
+           <input type="radio" name="gender" value="woman" checked>女
+    <br>
+
+    <!-- 单选框和多选框必须设置value，否则提交的数据为on，checked为默认选中 -->
+    兴趣爱好<input type="checkbox" name="hobby" value="smoking">抽烟
+                   <input type="checkbox" name="hobby" value="drink wine">喝酒
+                   <input type="checkbox" name="hobby" value="Eat fatty meat">吃肥肉
+    <br>
+    出生日期<input type="date" name="birthday">
+    <br>
+    靓照<input type="file" name="pic">
+    <br>
+    所在地<select name="city">
+    <option>北京</option>
+    <option selected>黄山</option><!-- selected设置默认选中 -->
+    <option>上海</option>
+</select>
+    <br>
     <input type="submit" value="注册">
+    <input type="reset" value="重置">
+    <input type="button" value="单纯按钮">
+    <hr>
+    <button type="submit">注册  </button>
+    <button type="reset">重置</button>
+    <button type="button">单纯按钮</button>
 </form>
 </body>
 </html>
