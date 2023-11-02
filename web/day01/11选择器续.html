@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>11选择器续</title>
+    <style>
+        /* 后代选择器，通过层级关系选择元素，选择范围更广 */
+        /*body div div p{color: red}*/
+
+        /* 子元素选择器，通过层级关系选择元素，选择范围更精准 */
+        body>p{
+            color: red;
+        }
+    </style>
 </head>
 <body>
+<img src="../../picture/11选择器续.png">
 <p>p1</p>
 <div><p>p2</p></div>
 <div>
