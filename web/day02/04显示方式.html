@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04显示方式</title>
+    <style>
+        div{ /* 块级元素，独占一行，可以修改宽高 */
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+        span{ /* 行内元素共占一行，不能修改宽高 */
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+        img{ /* 行内块元素共占一行，可以修改宽高 */
+            width: 100px;
+            height: 100px;
+        }
+        a{
+            background-color: #0aa1ed;
+            /* 因为超链接是行内元素,无法直接修改宽高,
+               如需修改, 必须将元素的显示方式改成块级或行内块 */
+            display: block;
+            width: 132px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 3px;/* 设置圆角 值越大越圆 */
+        }
+    </style>
+</head>
+<body>
+<a href="https://bo-luochuixue.github.io/Chuixue_ssm.github.io/static/xizhuxi.html">习:意气风发</a>
+<div>div1</div>
+<div>div2</div>
+<div>div3</div>
+<span>span1</span>
+<span>span2</span>
+<span>span3</span>
+</body>
+</html>

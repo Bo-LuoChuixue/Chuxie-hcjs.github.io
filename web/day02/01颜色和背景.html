@@ -3,8 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>01颜色和背景</title>
+    <style>
+        h1{
+            color: red;
+            color: #00ff00;
+            color: #000;
+            color: rgb(255,0,0);
+            color: rgba(255,0,0,0.2);
+        }
+        #d1{
+            width: 200px;height: 200px;
+            background-color: purple;
+            background-image: url("../IU2.jpg");/* 设置背景图片: 图片路径 */
+            background-size: 100px 100px;/* 设置背景图片尺寸:宽度 高度 */
+            background-repeat: no-repeat;/* 设置禁止重复 */
+            background-position: 30px 50px;/* 设置背景图片位置:横向偏移值  纵向偏移值 */
+            background-position: 50% 50%;/* 设置背景图片位置:横向百分比  纵向百分比 */
+        }
+        #d2{
+            width: 611px;
+            height: 376px;
+            background-color: #e8e8e8;
+            background-image: url("https://doc.codeboy.com/JSD/tstore_v1/images/itemCat/study_computer_img1.png");
+            background-repeat: no-repeat;
+            background-size: 318px 319px;
+            background-position: 90% 50%;
+        }
+    </style>
 </head>
 <body>
-
+<div id="d2"></div>
+<div id="d1">div<br>div</div>
+<h1>颜色测试</h1>
 </body>
 </html>
