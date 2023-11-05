@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04绝对定位</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+        #d1{
+            position: absolute;/*绝对定位 脱离文档流*/
+            /*通过left/right/top/bottom默认相对于窗口做偏移*/
+            right: 0;
+            bottom: 0;
+        }
+        #big{position:relative;width: 200px;height: 200px;background-color: green;margin: 100px 0 0 100px}
+        #big>div{width: 100px;height: 100px;background-color: blue;margin: 50px 0 0 50px}
+        #big>div>div{width: 50px;height: 50px;background-color: red;
+            position: absolute;
+            /*也可以让元素相对于某一个上级元素做偏移
+            ,需要设置上级元素为相对定位*/
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="big">
+    <div>
+        <div></div>
+    </div>
+</div>
+<div id="d1">div1</div>
+<div>div2</div>
+<div>div3</div>
+</body>
+</html>
