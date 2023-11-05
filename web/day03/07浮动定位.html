@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07浮动定位</title>
+    <style>
+        /*当元素的所有子元素全部浮动时,自动识别的高度为0,后面的元素会顶上来导致显示异常出现
+        给元素添加overflow:hidden后能够识别出浮动元素的高度*/
+        body>div{width: 200px;border: 1px solid red;overflow: hidden}
+        div>div{width: 50px;height: 50px;}
+        #d1{background-color: red;float: left}
+        #d2{background-color: green;float: left}
+        #d3{background-color: blue;float: left}
+        /*list-style-type: none去掉图标overflow: hidden解决浮动后高度识别为0 的问题*/
+        ul{list-style-type: none;overflow: hidden}
+        li{float: left;margin-right: 20px}
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="">首页</a></li><li><a href="">免费课</a></li>
+    <li><a href="">直播课</a></li><li><a href="">精品课</a></li>
+</ul>
+<div>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3"></div>
+</div>
+<div style="width: 200px;height: 200px;background-color: pink">abc</div>
+</body>
+</html>
