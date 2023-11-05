@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06固定定位</title>
+    <style>
+        #d1{
+            width: 1000px;height: 100px;
+            background-color: red;
+            position: fixed;/* 固定定位 */
+            top: 0;/* 相对于窗口做偏移 */
+        }
+        body{
+            padding-top: 100px;/* 让内容往下移动100像素 */
+        }
+        #d2{
+            width: 50px;height: 200px;background-color: blue;
+            position: fixed;right: 30px;bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="d1"></div>
+<div id="d2"></div>
+<img src="../IU2.jpg">
+<img src="../IU2.jpg">
+<img src="../IU2.jpg">
+<img src="../IU2.jpg">
+<img src="../IU2.jpg">
+</body>
+</html>
