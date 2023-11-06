@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03视频播放</title>
+</head>
+<body>
+<!--poster设置封面    https://ys.mihoyo.com/main/
+autoplay 自动播放(必须静音才能自动播放)
+loop设置循环  muted设置静音     opacity透明度样式 1 为不透明-->
+<video poster="https://ys.mihoyo.com/main/_nuxt/img/47f71d4.jpg"
+       loop muted autoplay controls
+       style="opacity: 1; width: 1664px; height: 936px;">
+  <!--source设置播放源 src设置视频路径
+  type设置资源类型-->
+  <source src="https://ys.mihoyo.com/main/_nuxt/videos/3e78e80.mp4"
+          type="audio/mp4">
+  您的浏览器不支持播放此视频.
+</video>
+<h1>本地播放</h1>
+<video poster="47f71d4.jpg"
+       loop muted autoplay controls
+       style="opacity: 1; width: 1664px; height: 936px;">
+  <!--source设置播放源 src设置视频路径
+  type设置资源类型-->
+  <source src="3e78e80.mp4"
+          type="audio/mp4">
+  您的浏览器不支持播放此视频.
+</video>
+</body>
+</html>
+<!--在视频上面右键检查 如果弹出的右侧内容中显示的不是video标签
+则在标签上面右键->HideElement(隐藏元素)
+重新在视频上面右键检查,如果显示的时video标签在标签上面右键->copy->copy element
+则把视频标签的内容 复制到剪切板了  粘贴到自己的页面中即可-->
+
+<!--
+
+
+java:
+for(int i=0;i<10;i++){
+    int y = i+1;
+}
+int z = i+y;  //编译报错
+javascript: let
+for(let i=0;i<10;i++){
+    let y = i+1;
+}
+let z = i+y; //代码不报错,但是i和y访问不到  undefined(未定义)
+javascript: var
+for(var i=0;i<10;i++){
+    var y = i+1;
+}
+var z = i+y; //代码不报错,并且可以访问到i和y的值
+
+
+
+
+
+
+
+
+
+-->
+

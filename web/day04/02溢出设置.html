@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02溢出设置</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            /*设置超出部分是否显示 默认visible显示*/
+            overflow: visible;
+            overflow: hidden;
+            overflow: scroll;/*滚动显示*/
+        }
+        body>img{
+            width: 100px;
+            /*行内或行内块元素垂直对齐方式 默认baseline基线对齐*/
+            vertical-align: top;
+            vertical-align: middle;
+            vertical-align: baseline;
+            vertical-align: bottom;
+        }
+    </style>
+
+</head>
+<body>
+<input type="text"><img src="../b.jpg">
+<div>
+    <img src="../b.jpg">
+</div>
+</body>
+</html>
