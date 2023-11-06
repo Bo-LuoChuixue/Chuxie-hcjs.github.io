@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮" onclick="f()">
+<input type="text" id="i1">
+<div>div</div>
+<span>span</span>
+
+<script>
+  //通过选择器获取元素对象
+  let d = document.querySelector("div");
+  //修改元素的文本内容  <xx>文本内容</xx>
+  d.innerText = "div的内容被修改了"
+  let s = document.querySelector("span");
+  s.innerText = "span内容被改";
+  //得到文本框对象
+  let i = document.querySelector("#i1");
+
+  function f() {
+    //得到文本框的内容  i.value
+    d.innerText = i.value;
+  }
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

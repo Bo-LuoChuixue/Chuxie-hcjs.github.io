@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="添加h1" onclick="f1()">
+<input type="button" value="添加图片" onclick="f2()">
+<script>
+  function f2() {
+    let i = document.createElement("img");
+    i.src = "../b.jpg";
+    i.width=100;
+    document.body.append(i);
+  }
+  function f1() {
+    //创建h1
+    let h = document.createElement("h1");
+    h.innerText = "这是h1";
+    //得到body元素 把h添加到body里面
+    document.body.append(h);
+  }
+
+
+
+</script>
+</body>
+</html>

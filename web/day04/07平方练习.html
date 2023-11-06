@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="i1">
+<input type="button" value="平方" onclick="f()">
+<h1>结果:<span></span></h1>
+<script>
+  let i = document.querySelector("#i1");
+  let s = document.querySelector("span");
+  function f() {
+    if (isNaN(i.value)){
+      s.innerText = "输入错误!";
+      return;
+    }
+    //把文本框里面数值平方后 赋值给span
+    // s.innerText =  i.value*i.value;
+    // 字符串进行减乘除时会自动转成数值再进行运算, 加法是拼接字符串
+    //parseFloat将字符串转成整数或小数
+    // s.innerText =  parseFloat(i.value)+parseFloat(i.value);
+    s.innerText =  i.value*1+i.value*1;
+    // NaN:Not a Number  不是一个数    如果字符串里面不是数字转成数字时会转成NaN
+    //NaN和任何内容进行任何运算 结果都是NaN
+
+  }
+</script>
+</body>
+</html>
