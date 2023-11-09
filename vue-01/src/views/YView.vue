@@ -5,7 +5,19 @@ export default {
 </script>
 
 <template>
-
+  <h1>卡片组件</h1>
+  <el-row :gutter="10">
+    <el-col v-for="item in 4" :span="6">
+      <el-card>
+        <img src="Sulli.jpg" style="width: 100%">
+        <p>克晶姐</p>
+        <div style="font-size: 12px;color: #666;text-align: left">
+          身高:1.68米
+          <span style="float: right">体重: 100斤</span>
+        </div>
+      </el-card>
+    </el-col>
+  </el-row>
 </template>
 
 <style scoped>
