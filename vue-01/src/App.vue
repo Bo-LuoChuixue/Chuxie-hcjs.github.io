@@ -23,6 +23,8 @@
     <router-link to="/q">表单组件</router-link>|
     <router-link to="/r">表格组件</router-link>|
     <router-link to="/s">员工列表练习进化版</router-link>|
+    <router-link to="/t">菜单组件</router-link>|
+    <router-link to="/u">布局组件</router-link>|
   </nav>
 <!--通过router-view展示不同的内容-->
   <router-view/>
