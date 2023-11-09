@@ -86,6 +86,12 @@ const routes = [
   },{
     path: '/x',
     component: () => import('../views/XView') /*懒加载*/
+  },{
+    path: '/y',
+    component: () => import('../views/YView') /*懒加载*/
+  },{
+    path: '/z',
+    component: () => import('../views/ZView') /*懒加载*/
   }
 
 ]
