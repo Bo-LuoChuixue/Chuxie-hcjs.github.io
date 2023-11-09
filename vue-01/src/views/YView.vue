@@ -10,10 +10,10 @@ export default {
     <el-col v-for="item in 4" :span="6">
       <el-card>
         <img src="Sulli.jpg" style="width: 100%">
-        <p>克晶姐</p>
+        <p>崔雪莉</p>
         <div style="font-size: 12px;color: #666;text-align: left">
-          身高:1.68米
-          <span style="float: right">体重: 100斤</span>
+          身高:1.70米
+          <span style="float: right">体重: 96斤</span>
         </div>
       </el-card>
     </el-col>
