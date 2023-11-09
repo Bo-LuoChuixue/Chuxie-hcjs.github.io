@@ -11,7 +11,7 @@
         <el-menu-item index="5">数码科技</el-menu-item>
       </el-menu>
     </el-header>
-    <el-main>
+    <el-main style="width: 1200px;margin: 0 auto">
       <!--  此routerView用来展示首页商品列表和详情    -->
       <router-view/>
     </el-main>
