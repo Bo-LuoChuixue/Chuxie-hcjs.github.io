@@ -80,6 +80,12 @@ const routes = [
   },{
     path: '/v',
     component: () => import('../views/VView') /*懒加载*/
+  },{
+    path: '/w',
+    component: () => import('../views/WView') /*懒加载*/
+  },{
+    path: '/x',
+    component: () => import('../views/XView') /*懒加载*/
   }
 
 ]

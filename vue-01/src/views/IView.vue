@@ -17,7 +17,7 @@ import {ref} from "vue";
 
 const p = ref({name:"",age:"",imgUrl:"",friends:[]});
 const load=()=>{
-  let person = {name:"崔雪莉",age:26,imgUrl:"https://img2.baidu.com/it/u=873563546,670720569&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=625",friends:["李知恩","具荷拉","金泰妍"]}
+  let person = {name:"崔雪莉",age:26,imgUrl:"Sulli.jpg",friends:["李知恩","具荷拉","金泰妍"]}
   //把从服务器请求到的数据赋值给响应式变量
   p.value = person;
 }

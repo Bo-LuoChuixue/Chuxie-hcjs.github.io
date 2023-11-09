@@ -26,6 +26,8 @@
     <router-link to="/t">菜单组件</router-link>|
     <router-link to="/u">布局组件</router-link>|
     <router-link to="/v">布局容器</router-link>|
+    <router-link to="/w">走马灯组件</router-link>|
+    <router-link to="/x">弹出框组件</router-link>|
   </nav>
 <!--通过router-view展示不同的内容-->
   <router-view/>
