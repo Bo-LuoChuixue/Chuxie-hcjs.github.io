@@ -25,6 +25,7 @@
     <router-link to="/s">员工列表练习进化版</router-link>|
     <router-link to="/t">菜单组件</router-link>|
     <router-link to="/u">布局组件</router-link>|
+    <router-link to="/v">布局容器</router-link>|
   </nav>
 <!--通过router-view展示不同的内容-->
   <router-view/>

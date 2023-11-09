@@ -77,6 +77,9 @@ const routes = [
   },{
     path: '/u',
     component: () => import('../views/UView') /*懒加载*/
+  },{
+    path: '/v',
+    component: () => import('../views/VView') /*懒加载*/
   }
 
 ]
