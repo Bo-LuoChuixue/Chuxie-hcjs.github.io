@@ -1,5 +1,10 @@
 <script setup>
 import {ref} from "vue";
+const handleDelete = (i,emp)=>{
+  if (confirm("是否删除"+emp.name+"?")){
+    arr.value.splice(i,1);
+  }
+}
 
 const tableData = [
   {
@@ -44,13 +49,8 @@ const arr=ref([{name:"张三",salary:3000,job:"销售"},
     <el-table-column prop="job" label="工作"></el-table-column>
     <el-table-column label="Operations">
       <template #default="scope">
-        <el-button size="small" @click="handleEdit(scope.$index, scope.row)"
-        >Edit</el-button
-        >
-        <el-button
-            size="small"
-            type="danger"
-            @click="handleDelete(scope.$index, scope.row)"
+        <el-button size="small" type="danger"
+                   @click="handleDelete(scope.$index, scope.row)"
         >Delete</el-button
         >
       </template>
