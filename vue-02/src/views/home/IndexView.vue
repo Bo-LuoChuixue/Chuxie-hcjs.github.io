@@ -4,6 +4,23 @@
       <img :src="url" style="width: 100%;height: 100%">
     </el-carousel-item>
   </el-carousel>
+  <!-- 商品列表开始 -->
+  <el-row :gutter="20">
+    <el-col style="margin: 10px 0" :span="6" v-for="p in productArr">
+      <el-card>
+        <!--    router-link 取代超链接, 好处是直接替换内容 而不是整个页面刷新    -->
+        <router-link to="/detail">
+          <img :src="p.url" style="width: 100%">
+          <p style="font-size: 14px;height: 30px">{{p.title}}</p>
+        </router-link>
+        <p>
+          <b>￥{{p.price}}</b><s>{{p.oldPrice}}</s>
+          <span style="float: right">销量:{{p.saleCount}}件</span>
+        </p>
+      </el-card>
+    </el-col>
+  </el-row>
+  <!-- 商品列表结束 -->
 </template>
 
 <script setup>
