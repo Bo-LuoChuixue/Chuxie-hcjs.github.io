@@ -16,7 +16,18 @@ const routes = [
     }]
   }, {
     path: '/admin',
-    component: () => import('../views/AdminView.vue')
+    component: () => import('../views/AdminView.vue'),
+    redirect: '/category',
+    children:[{
+      path: '/category',
+      component: () => import('../views/admin/CategoryView.vue'),
+    },{
+      path: '/banner',
+      component: () => import('../views/admin/BannerView.vue'),
+    },{
+      path: '/product',
+      component: () => import('../views/admin/ProductView.vue'),
+    },]
   }, {
     path: '/reg',
     component: () => import('../views/RegView.vue')
