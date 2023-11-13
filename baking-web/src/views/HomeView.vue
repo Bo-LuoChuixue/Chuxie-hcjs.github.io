@@ -46,7 +46,32 @@
            <p>烘焙行业网络社区平台</p>
            <p>全国百城上千职位等你来</p>
          </el-col>
-        <el-col :span="8"></el-col>
+        <el-col :span="8" id="footer-center">
+          <el-row :gutter="10">
+            <el-col :span="8">
+              <h3>关于我们</h3>
+              <p>烘焙学院</p>
+              <p>烘焙食谱</p>
+              <p>分类信息</p>
+              <p>求职招聘</p>
+              <p>社区交流</p>
+            </el-col>
+            <el-col :span="8">
+              <h3>服务与支持</h3>
+              <p>联系我们</p>
+              <p>广告投放</p>
+              <p>用户协议</p>
+              <p>友情链接</p>
+              <p>在线反馈</p>
+            </el-col>
+            <el-col :span="8">
+              <h3>底部导航</h3>
+              <p>Archiver</p>
+              <p>手机版</p>
+              <p>小黑屋</p>
+            </el-col>
+          </el-row>
+        </el-col>
         <el-col :span="8"></el-col>
       </el-row>
     </div>
