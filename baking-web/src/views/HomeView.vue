@@ -37,6 +37,20 @@
   <el-main>
     <router-view/>
   </el-main>
+  <el-footer style="background-color: rgb(47,50,52);height: 280px;padding: 50px 0">
+    <div style="width: 1200px;margin: 0 auto">
+      <el-row :gutter="10">
+         <el-col :span="8">
+           <img src="/imgs/icon.png">
+           <p>教程灵感就看烘焙坊</p>
+           <p>烘焙行业网络社区平台</p>
+           <p>全国百城上千职位等你来</p>
+         </el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+      </el-row>
+    </div>
+  </el-footer>
 </el-container>
 </template>
 
