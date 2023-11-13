@@ -6,15 +6,27 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView,
+    redirect:'/index',
     children:[{
       path:'/reg',
       component: () => import('../views/home/RegView')
+    },{
+      path:'/login',
+      component: () => import('../views/home/LoginView')
+    },{
+      path:'/index',
+      component: () => import('../views/home/IndexView')
+    },{
+      path:'/list',
+      component: () => import('../views/home/ListView')
+    },{
+      path:'/detail',
+      component: () => import('../views/home/DetailView')
     }]
   },
   {
     path: '/about',
     name: 'about',
-
     component: () => import('../views/AdminView.vue')
   }
 ]
