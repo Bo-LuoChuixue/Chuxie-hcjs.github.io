@@ -25,6 +25,7 @@ const routes = [
     }, {
       path: '/personal',
       component: () => import('../views/home/PersonalView'),
+      redirect:'/personal/index',
       children:[ {
       path: '/index',
       component: () => import('../views/home/Personal/IndexView.vue')
