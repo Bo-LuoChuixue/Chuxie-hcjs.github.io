@@ -32,6 +32,9 @@ const routes = [
       },{
         path:'management',
         component: () => import('../views/home/personal/ManagementView'),
+      },{
+        path:'post',
+        component: () => import('../views/home/personal/PostView'),
       }]
     }]
   },
