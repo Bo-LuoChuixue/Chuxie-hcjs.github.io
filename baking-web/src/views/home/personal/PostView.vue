@@ -13,12 +13,28 @@
         </el-radio-group>
       </el-form-item>
       <el-form-item label="二级分类">
-        <el-select placeholder="请选择">
+        <el-select placeholder="请选择" v-model="c.categoryId">
           <el-option label="面包" value="1"></el-option>
           <el-option label="泡芙" value="2"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="封面"></el-form-item>
+      <el-form-item label="封面">
+        <!--    上传组件开始    -->
+        <el-upload
+            v-model:file-list="fileList"
+            action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
+            list-type="picture-card"
+            :on-preview="handlePictureCardPreview"
+            :on-remove="handleRemove"
+        >
+          <el-icon><Plus /></el-icon>
+        </el-upload>
+        <el-dialog v-model="dialogVisible">
+          <img w-full :src="dialogImageUrl" alt="Preview Image" />
+        </el-dialog>
+        <!--    上传组件结束    -->
+
+      </el-form-item>
       <el-form-item label="文章内容"></el-form-item>
       <el-form-item><el-button type="primary">发布内容</el-button></el-form-item>
     </el-form>
@@ -27,8 +43,27 @@
 
 <script setup>
 import {ref} from "vue";
+import { Plus } from '@element-plus/icons-vue'
+import { UploadProps, UploadUserFile } from 'element-plus'
 
-const c = ref({title:"",type:1});
+const c = ref({title:"",type:1,categoryId:""});
+
+/*********上传相关开始**********/
+
+const fileList = ref([])
+
+const dialogImageUrl = ref('')
+const dialogVisible = ref(false)
+
+const handleRemove = (uploadFile, uploadFiles) => {
+  console.log(uploadFile, uploadFiles)
+}
+
+const handlePictureCardPreview = (uploadFile) => {
+  dialogImageUrl.value = uploadFile.url
+  dialogVisible.value = true
+}
+/*********上传相关结束**********/
 </script>
 
 <style scoped>
