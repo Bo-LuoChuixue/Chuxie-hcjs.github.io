@@ -35,20 +35,24 @@
         <!--    上传组件结束    -->
 
       </el-form-item>
-      <el-form-item label="文章内容"></el-form-item>
+      <el-form-item label="文章内容">
+        <!-- ref="xxx" 让元素和某个变量进行关联 -->
+        <div ref="editorContent"></div>
+      </el-form-item>
       <el-form-item><el-button type="primary">发布内容</el-button></el-form-item>
     </el-form>
   </el-card>
 </template>
 
 <script setup>
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import { Plus } from '@element-plus/icons-vue'
 import { UploadProps, UploadUserFile } from 'element-plus'
+import Editor from 'wangeditor';//导入富文本编辑器  安装指令：npm install wangeditor
 
 const c = ref({title:"",type:1,categoryId:""});
 
-/*********上传相关开始**********/
+/********* 上传相关开始 **********/
 
 const fileList = ref([])
 
@@ -63,7 +67,15 @@ const handlePictureCardPreview = (uploadFile) => {
   dialogImageUrl.value = uploadFile.url
   dialogVisible.value = true
 }
-/*********上传相关结束**********/
+/********* 上传相关结束 **********/
+
+
+/* 富文本编辑器相关 */
+const editorContent=ref(null);//此变量对应的是页面中的div
+let editor=null;
+onMounted(()=>{ //此方法是VUE框架的一个声明周期方法(从创建开始到销毁过程中自动调用的方法，此方法是在VUE框架挂载完成时触发(可以理解为页面加载完时))
+  editor=new Editor(editorContent.value);
+});
 </script>
 
 <style scoped>
