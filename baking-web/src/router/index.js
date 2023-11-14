@@ -22,12 +22,25 @@ const routes = [
     },{
       path:'/detail',
       component: () => import('../views/home/DetailView')
+    },{
+      path:'/personal',
+      component: () => import('../views/home/PersonalView')
     }]
   },
   {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/AdminView.vue')
+    path: '/admin',
+    component: () => import('../views/AdminView.vue'),
+    redirect: '/admin/user',
+    children: [{
+      path: 'user',
+      component: () => import('../views/admin/UserView'),
+    },{
+      path: 'banner',
+      component: () => import('../views/admin/BannerView'),
+    },{
+      path: 'content',
+      component: () => import('../views/admin/ContentView'),
+    }]
   }
 ]
 
