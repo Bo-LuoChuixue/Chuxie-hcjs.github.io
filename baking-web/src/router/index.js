@@ -6,25 +6,32 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView,
-    redirect:'/index',
-    children:[{
-      path:'/reg',
+    redirect: '/index',
+    children: [{
+      path: '/reg',
       component: () => import('../views/home/RegView')
-    },{
-      path:'/login',
+    }, {
+      path: '/login',
       component: () => import('../views/home/LoginView')
-    },{
-      path:'/index',
+    }, {
+      path: '/index',
       component: () => import('../views/home/IndexView')
-    },{
-      path:'/list',
+    }, {
+      path: '/list',
       component: () => import('../views/home/ListView')
-    },{
-      path:'/detail',
+    }, {
+      path: '/detail',
       component: () => import('../views/home/DetailView')
-    },{
-      path:'/personal',
-      component: () => import('../views/home/PersonalView')
+    }, {
+      path: '/personal',
+      component: () => import('../views/home/PersonalView'),
+      children:[ {
+      path: '/index',
+      component: () => import('../views/home/Personal/IndexView.vue')
+    }, {
+      path: '/management',
+      component: () => import('../views/home/Personal/ManagementView.vue')
+    }]
     }]
   },
   {
