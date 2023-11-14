@@ -74,7 +74,9 @@ const handlePictureCardPreview = (uploadFile) => {
 const editorContent=ref(null);//此变量对应的是页面中的div
 let editor=null;
 onMounted(()=>{ //此方法是VUE框架的一个声明周期方法(从创建开始到销毁过程中自动调用的方法，此方法是在VUE框架挂载完成时触发(可以理解为页面加载完时))
-  editor=new Editor(editorContent.value);
+  editor=new Editor(editorContent.value);//实例化富文本编辑器对象，需要用到页面中的div
+  editor.config.placeholder="请输入内容详情";//设置占位文本
+  editor.create();//将富文本编辑器渲染到页面中
 });
 </script>
 
