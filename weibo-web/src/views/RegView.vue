@@ -16,4 +16,7 @@
   </el-card>
 </template>
 <script setup>
+import {ref} from "vue";
+
+const user=ref({username:"",password:"",nickname:""});
 </script>
