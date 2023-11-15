@@ -1,11 +1,10 @@
-package cn.tedu.pojo.dto;
+package cn.tedu.weibo.pojo.dto;
 
 import lombok.Data;
 
 /**
  * 发表评论DTO类
  */
-
 @Data
 public class CommentDTO {
     //微博id,评论内容

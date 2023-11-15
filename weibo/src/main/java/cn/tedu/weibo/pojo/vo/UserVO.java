@@ -1,4 +1,4 @@
-package cn.tedu.pojo.vo;
+package cn.tedu.weibo.pojo.vo;
 
 import lombok.Data;
 

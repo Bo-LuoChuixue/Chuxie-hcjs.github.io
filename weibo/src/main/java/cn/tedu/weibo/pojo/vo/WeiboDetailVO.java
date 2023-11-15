@@ -1,4 +1,4 @@
-package cn.tedu.pojo.vo;
+package cn.tedu.weibo.pojo.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -8,7 +8,6 @@ import java.util.Date;
 /**
  * 微博详情页功能的VO类
  */
-
 @Data
 public class WeiboDetailVO {
     //微博id,微博内容,微博发布时间,用户昵称

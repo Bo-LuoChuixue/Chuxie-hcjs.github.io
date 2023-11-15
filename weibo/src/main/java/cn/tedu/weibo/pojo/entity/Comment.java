@@ -1,4 +1,4 @@
-package cn.tedu.pojo.entity;
+package cn.tedu.weibo.pojo.entity;
 
 import lombok.Data;
 
@@ -7,7 +7,6 @@ import java.util.Date;
 /**
  * 评论表实体类
  */
-
 @Data
 public class Comment {
     private Long id;

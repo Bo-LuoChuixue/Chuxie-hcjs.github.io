@@ -1,4 +1,4 @@
-package cn.tedu.pojo.vo;
+package cn.tedu.weibo.pojo.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -8,7 +8,6 @@ import java.util.Date;
 /**
  * 评论列表的VO类
  */
-
 @Data
 public class CommentVO {
     //评论id,评论内容,评论时间,用户昵称
@@ -18,3 +17,11 @@ public class CommentVO {
     private Date created;
     private String nickname;
 }
+
+
+
+
+
+
+
+
