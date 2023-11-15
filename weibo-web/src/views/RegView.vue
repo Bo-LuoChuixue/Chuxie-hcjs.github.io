@@ -11,12 +11,21 @@
       <el-form-item label="昵称">
         <el-input v-model="user.nickname"></el-input>
       </el-form-item>
-      <el-form-item><el-button>注册</el-button></el-form-item>
+      <el-form-item>
+        <el-button @click="reg()">注册</el-button>
+      </el-form-item>
     </el-form>
   </el-card>
 </template>
 <script setup>
 import {ref} from "vue";
+import qs from 'qs';
 
-const user=ref({username:"",password:"",nickname:""});
+const user = ref({username: "", password: "", nickname: ""});
+const reg = () => {
+  //向服务器发出请求
+  //将user对象转成查询字符串
+  let data=qs.stringify(user.value);
+  console.log(data);
+}
 </script>
