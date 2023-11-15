@@ -23,6 +23,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+    @ExceptionHandler
+    public JsonResult doHandleServiceException(ServiceException ex){
+        log.error(ex.getStatusCode().getMsg());
+        return new JsonResult(ex.getStatusCode());
+    }
     /**
      * ExceptionHandler注解:
      *   1.此方法为异常处理方法;

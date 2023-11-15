@@ -20,7 +20,8 @@
 <script setup>
 import {ref} from "vue";
 import qs from 'qs';
-import axios from "axios";
+import axios from "axios";import router from "@/router";
+import {ElMessage} from "element-plus";
 
 const user = ref({username: "", password: "", nickname: ""});
 const reg = () => {
@@ -31,6 +32,11 @@ const reg = () => {
   //向服务器发出请求
   axios.post('http://localhost:8080/v1/users/reg', data).then((response) => {
     console.log(response.data);//response对象里装着服务器响应的内容  response.data得到服务器响应的数据
+    if (response.data.code==2001){
+      router.push('/');
+    }else {
+      ElMessage.error("用户名已存在！");
+    }
   })
 }
 </script>
