@@ -1,7 +1,22 @@
 <script setup>
 import {ref} from "vue";
+import qs from 'qs';
+import axios from "axios";
+import router from "@/router";
+import {ElMessage} from "element-plus";
 
 const user=ref({username:"",password:""})
+const login=()=>{
+  let data=qs.stringify(user.value);
+  axios.post('http://localhost:8080/v1/users/login',data)
+      .then((response)=>{
+        if (response.data.code==2001){
+          router.push('/');//返回首页
+        }else {
+          ElMessage.error(response.data.msg);
+        }
+      })
+}
 </script>
 
 <template>
