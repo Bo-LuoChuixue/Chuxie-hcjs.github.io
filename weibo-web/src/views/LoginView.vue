@@ -10,7 +10,7 @@ const login=()=>{
   let data=qs.stringify(user.value);
   axios.post('http://localhost:8080/v1/users/login',data)
       .then((response)=>{
-        if (response.data.code==2001){
+        if (response.data.code==1001){
           router.push('/');//返回首页
         }else {
           ElMessage.error(response.data.msg);
