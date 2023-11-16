@@ -7,13 +7,19 @@
     <router-link to="/login">登录</router-link>
   </div>
   <div v-else>
-    <h2>欢迎{{user.nickname}}</h2>
-    <a href="">退出登录</a>
+    <h2>欢迎{{ user.nickname }}</h2>
+    <router-link to="/post">发微博</router-link>  |
+    <a href="javascript:void(0)" @click="logout()">退出登录</a>
   </div>
 </template>
 
 <script setup>
 import {ref} from "vue";
 
-const user=ref(localStorage.user?JSON.parse(localStorage.user):null);
+const user = ref(localStorage.user ? JSON.parse(localStorage.user) : null);
+const logout = () => {
+  if (confirm("是否确认退出登录"))
+  localStorage.clear();//清楚localStorage中的数据
+  user.value = null;
+}
 </script>
