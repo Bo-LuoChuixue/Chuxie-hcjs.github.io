@@ -24,6 +24,7 @@ public class UserController {
     @PostMapping("login")
     public JsonResult login(UserLoginDTO userLoginDTO){
         System.out.println("userLoginDTO="+userLoginDTO);
+        service.login(userLoginDTO);
         return new JsonResult(StatusCode.LOGIN_SUCCESS);
     }
 }

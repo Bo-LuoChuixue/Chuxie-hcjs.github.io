@@ -2,6 +2,7 @@ package cn.tedu.weibo.service.impl;
 
 import cn.tedu.weibo.exception.ServiceException;
 import cn.tedu.weibo.mapper.UserMapper;
+import cn.tedu.weibo.pojo.dto.UserLoginDTO;
 import cn.tedu.weibo.pojo.dto.UserRegDTO;
 import cn.tedu.weibo.pojo.entity.User;
 import cn.tedu.weibo.pojo.vo.UserVO;
@@ -16,15 +17,27 @@ import java.util.Date;
 public class UserService implements IUserService {
     @Autowired
     UserMapper mapper;
+
     @Override
     public void reg(UserRegDTO userRegDTO) {
-        UserVO userVO=mapper.selectByUsername(userRegDTO.getUsername());
-        if (userVO!=null){
+        UserVO userVO = mapper.selectByUsername(userRegDTO.getUsername());
+        if (userVO != null) {
             throw new ServiceException(StatusCode.USERNAME_ALREADY_EXISTS);
         }
-        User user=new User();
-        BeanUtils.copyProperties(userRegDTO,user);
+        User user = new User();
+        BeanUtils.copyProperties(userRegDTO, user);
         user.setCreated(new Date());
         mapper.insert(user);
+    }
+
+    @Override
+    public void login(UserLoginDTO userLoginDTO) {
+        UserVO userVO = mapper.selectByUsername(userLoginDTO.getUsername());
+        if (userVO == null) { //用户名不存在
+            throw new ServiceException(StatusCode.USERNAME_ERROR);
+        }
+        if (!userVO.getPassword().equals(userLoginDTO.getPassword())){ //密码错误
+            throw new ServiceException(StatusCode.PASSWORD_ERROR);
+        }
     }
 }
