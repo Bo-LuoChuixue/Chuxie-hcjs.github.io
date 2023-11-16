@@ -10,6 +10,10 @@ const routes = [
   {
     path: '/reg',
     component: () => import('../views/RegView.vue')
+  },
+  {
+    path: '/login',
+    component: () => import('../views/LoginView.vue')
   }
 ]
 
