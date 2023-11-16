@@ -21,7 +21,7 @@ public class UserController {
         service.reg(userRegDTO);
         return JsonResult.ok();
     }
-    @PostMapping
+    @PostMapping("login")
     public JsonResult login(UserLoginDTO userLoginDTO){
         System.out.println("userLoginDTO="+userLoginDTO);
         return new JsonResult(StatusCode.LOGIN_SUCCESS);
