@@ -11,6 +11,7 @@ const login=()=>{
   axios.post('http://localhost:8080/v1/users/login',data)
       .then((response)=>{
         if (response.data.code==1001){
+          ElMessage.success('欢迎'+response.data.data.nickname)
           router.push('/');//返回首页
         }else {
           ElMessage.error(response.data.msg);

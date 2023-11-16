@@ -2,6 +2,7 @@ package cn.tedu.weibo.controller;
 
 import cn.tedu.weibo.pojo.dto.UserLoginDTO;
 import cn.tedu.weibo.pojo.dto.UserRegDTO;
+import cn.tedu.weibo.pojo.vo.UserVO;
 import cn.tedu.weibo.response.JsonResult;
 import cn.tedu.weibo.response.StatusCode;
 import cn.tedu.weibo.service.IUserService;
@@ -21,10 +22,11 @@ public class UserController {
         service.reg(userRegDTO);
         return JsonResult.ok();
     }
+
     @PostMapping("login")
-    public JsonResult login(UserLoginDTO userLoginDTO){
-        System.out.println("userLoginDTO="+userLoginDTO);
-        service.login(userLoginDTO);
-        return new JsonResult(StatusCode.LOGIN_SUCCESS);
+    public JsonResult login(UserLoginDTO userLoginDTO) {
+        System.out.println("userLoginDTO=" + userLoginDTO);
+        UserVO userVO = service.login(userLoginDTO);
+        return new JsonResult(StatusCode.LOGIN_SUCCESS, userVO);
     }
 }
