@@ -4,17 +4,16 @@
   <p>{{ w.created }}</p>
   <hr>
   <h3>評論相關</h3>
-  <el-input placeholder="輸入評論內容" v-model="c.content"></el-input>
+  <el-input placeholder="請輸入評論內容" v-model="c.content"></el-input>
   <el-button @click="postComment()">評論</el-button>
   <hr>
   <div v-for="comment in commentArr">
-    <h4>{{comment.nickname}}說：{{comment.content}}</h4>
-    <p style="font-size: 12px;color: #666;margin: 0">{{comment.created}}</p>
+    <h4>{{ comment.nickname }}說:{{ comment.content }}</h4>
+    <p style="font-size: 12px;color: #666;margin: 0">{{ comment.created }}</p>
   </div>
 </template>
 
 <script setup>
-
 import {onMounted, ref} from "vue";
 import axios from "axios";
 import {ElMessage} from "element-plus";
