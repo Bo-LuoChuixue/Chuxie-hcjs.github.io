@@ -37,7 +37,7 @@ const login = () => {
 <style scoped>
 #main-div {
   height: 500px;
-  background-image: url('baking-web/public/imgs/loginbg.gif');
+  background-image: url('/public/imgs/loginbg.gif');
   overflow: hidden;
   background-position: center;
   background-size: cover; /*設置封面*/
