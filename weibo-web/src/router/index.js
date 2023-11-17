@@ -9,15 +9,19 @@ const routes = [
   },
   {
     path: '/reg',
-    component: () => import('../views/RegView.vue')
+    component: () => import( '../views/RegView.vue')
   },
   {
     path: '/login',
-    component: () => import('../views/LoginView.vue')
+    component: () => import( '../views/LoginView.vue')
   },
   {
     path: '/post',
-    component: () => import('../views/PostView.vue')
+    component: () => import( '../views/PostView.vue')
+  },
+  {
+    path: '/detail',
+    component: () => import( '../views/DetailView.vue')
   }
 ]
 

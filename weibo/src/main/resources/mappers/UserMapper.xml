@@ -11,11 +11,3 @@
         insert into user values(null,#{username},#{password},#{nickname},#{created})
     </insert>
 </mapper>
-
-
-
-
-
-
-
-
