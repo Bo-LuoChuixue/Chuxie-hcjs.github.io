@@ -20,9 +20,8 @@ public class WeiboService implements IWeiboService {
     @Override
     public void addNew(InsertWeiboDTO weiboDTO) {
         Weibo weibo = new Weibo();
-        BeanUtils.copyProperties(weiboDTO,weibo);
+        BeanUtils.copyProperties(weiboDTO, weibo);
         weibo.setCreated(new Date());
-
         mapper.insert(weibo);
     }
 

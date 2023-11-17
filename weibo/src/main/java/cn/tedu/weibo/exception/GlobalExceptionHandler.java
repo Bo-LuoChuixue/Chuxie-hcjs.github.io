@@ -1,6 +1,5 @@
 package cn.tedu.weibo.exception;
 
-
 import cn.tedu.weibo.response.JsonResult;
 import cn.tedu.weibo.response.StatusCode;
 import lombok.extern.slf4j.Slf4j;
@@ -10,32 +9,36 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * ControllerAdvice註解:
- *   1.添加在類上,標識此類為全局異常處理器的類;
- *   2.處理所有由控制器controller中拋出的異常;
- *   3.處理流程:
- *     3.1 當控制器拋出異常時,框架會首先檢查有沒有定義全局異常處理器;
- *     3.2 如果定義了,則會到該異常處理器的類中找對應的異常處理方法;
- *     3.3 如果定義了異常處理方法,則由該方法處理異常並返迴響應給客戶端;
+ * 1.添加在類上,標識此類為全局異常處理器的類;
+ * 2.處理所有由控制器controller中拋出的異常;
+ * 3.處理流程:
+ * 3.1 當控制器拋出異常時,框架會首先檢查有沒有定義全局異常處理器;
+ * 3.2 如果定義了,則會到該異常處理器的類中找對應的異常處理方法;
+ * 3.3 如果定義了異常處理方法,則由該方法處理異常並返迴響應給客戶端;
  * RestControllerAdvice註解:
- *     組合註解,等價於 ControllerAdvice註解 + ResponseBody註解;
+ * 組合註解,等價於 ControllerAdvice註解 + ResponseBody註解;
  */
+
 //@ControllerAdvice
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
     @ExceptionHandler
-    public JsonResult doHandleServiceException(ServiceException ex){
-        log.error(ex.getStatusCode().getMsg());
+    public JsonResult doHandleServiceException(ServiceException ex) {
+        log.error(ex.getStatusCode().getMsg());//控制台輸出日誌
         return new JsonResult(ex.getStatusCode());
     }
+
     /**
      * ExceptionHandler註解:
-     *   1.此方法為異常處理方法;
+     * 1.此方法為異常處理方法;
+     *
      * @param ex 控制器中拋出的異常對象;
-     * @return  JsonResult
+     * @return JsonResult
      */
     @ExceptionHandler
-    public JsonResult doHandleRuntimeException(RuntimeException ex){
+    public JsonResult doHandleRuntimeException(RuntimeException ex) {
         /*
            1.code
            2.msg
@@ -56,7 +59,7 @@ public class GlobalExceptionHandler {
      * 4:如果也沒有定義父類的異常處理方法,則使用SpringMVC默認的異常處理機制.
      */
     @ExceptionHandler
-    public JsonResult doHandleIllegalArgumentException(IllegalArgumentException ex){
+    public JsonResult doHandleIllegalArgumentException(IllegalArgumentException ex) {
         String data = ex.getMessage();
         log.error("IllegalArgumentException:" + data);
 
@@ -65,9 +68,9 @@ public class GlobalExceptionHandler {
 
     /**
      * 處理由Validation拋出的異常
-      */
+     */
     @ExceptionHandler
-    public JsonResult doHandleMethodArgumentNotValidException(MethodArgumentNotValidException ex){
+    public JsonResult doHandleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
         /*
             1.code: 3002
             2.msg:  參數校驗失敗
@@ -91,3 +94,10 @@ public class GlobalExceptionHandler {
         return new JsonResult(StatusCode.THROWABLE_ERROR, data);
     }*/
 }
+
+
+
+
+
+
+

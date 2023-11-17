@@ -22,6 +22,8 @@ public class UserService implements IUserService {
     public void reg(UserRegDTO userRegDTO) {
         UserVO userVO = mapper.selectByUsername(userRegDTO.getUsername());
         if (userVO != null) {
+            //當業務層出現異常情況時,無法直接給客戶端響應數據,
+            // 需要通過拋出業務層異常,讓全局異常處理器去給客戶端響應數據
             throw new ServiceException(StatusCode.USERNAME_ALREADY_EXISTS);
         }
         User user = new User();
@@ -33,12 +35,12 @@ public class UserService implements IUserService {
     @Override
     public UserVO login(UserLoginDTO userLoginDTO) {
         UserVO userVO = mapper.selectByUsername(userLoginDTO.getUsername());
-        if (userVO == null) { //用戶名不存在
+        if (userVO == null) {//用戶名錯誤
             throw new ServiceException(StatusCode.USERNAME_ERROR);
         }
-        if (!userVO.getPassword().equals(userLoginDTO.getPassword())){ //密碼錯誤
+        if (!userVO.getPassword().equals(userLoginDTO.getPassword())) {//密碼錯誤
             throw new ServiceException(StatusCode.PASSWORD_ERROR);
         }
-        return userVO;//把登陸成功的用戶信息傳遞給UserController
+        return userVO;//把登錄成功的用戶信息傳遞給UserController
     }
 }

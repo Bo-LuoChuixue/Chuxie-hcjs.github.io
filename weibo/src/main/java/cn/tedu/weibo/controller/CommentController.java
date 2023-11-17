@@ -20,9 +20,10 @@ public class CommentController {
         service.addNew(commentDTO);
         return JsonResult.ok();
     }
-    @GetMapping("{id")
-    public JsonResult listById(@PathVariable Long id){
-        List<CommentVO> list=service.listById(id);
+
+    @GetMapping("{id}")
+    public JsonResult listById(@PathVariable Long id) {
+        List<CommentVO> list = service.listById(id);
         return JsonResult.ok(list);
     }
 }

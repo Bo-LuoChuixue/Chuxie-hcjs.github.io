@@ -11,6 +11,7 @@
     <h4>{{ comment.nickname }}說:{{ comment.content }}</h4>
     <p style="font-size: 12px;color: #666;margin: 0">{{ comment.created }}</p>
   </div>
+
 </template>
 
 <script setup>
@@ -39,6 +40,8 @@ const postComment = () => {
       .then((response) => {
         if (response.data.code == 2001) {
           ElMessage.success("評論完成!");
+          //重新加載評論數據
+          loadComments(w.value.id);
         } else {
           ElMessage.error(response.data.msg);
         }
@@ -56,14 +59,17 @@ onMounted(() => {
       ElMessage.error(response.data.msg);
     }
   })
+  loadComments(id);
+})
 
+const loadComments = (id) => {
   //請求當前微博相關的評論
   axios.get('http://localhost:8080/v1/comments/' + id).then((response) => {
     if (response.data.code == 2001) {
       commentArr.value = response.data.data;
     }
   })
-})
+}
 </script>
 
 <style scoped>

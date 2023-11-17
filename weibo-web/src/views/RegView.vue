@@ -17,25 +17,27 @@
     </el-form>
   </el-card>
 </template>
+
 <script setup>
 import {ref} from "vue";
 import qs from 'qs';
-import axios from "axios";import router from "@/router";
-import {ElMessage} from "element-plus";
+import axios from 'axios';
+import router from "@/router";
+import {ElMessage} from 'element-plus'
 
 const user = ref({username: "", password: "", nickname: ""});
 const reg = () => {
   //將user對象轉成查詢字符串
   let data = qs.stringify(user.value);
   console.log(data);
-
   //向服務器發出請求
   axios.post('http://localhost:8080/v1/users/reg', data).then((response) => {
-    console.log(response.data);//response對象里裝着服務器響應的內容  response.data得到服務器響應的數據
-    if (response.data.code==2001){
+    //response 對象裏面裝着服務器響應的內容   response.data得到服務器響應的數據
+    if (response.data.code == 2001) {
+      //成功則跳轉到首頁
       router.push('/');
-    }else {
-      ElMessage.error("用戶名已存在！");
+    } else {
+      ElMessage.error("用戶名已存在!");
     }
   })
 }
