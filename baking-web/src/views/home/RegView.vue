@@ -9,26 +9,25 @@
     <el-col :span="12">
       <el-form  label-width="100px" style="margin-top: 100px">
         <el-form-item>
-          <h1 style="font-size: 40px;width: 100%">立即注册
-<!--router-link是脚手架工程中取代超链接的标签,好处是 超链接跳转会让整个页面刷新,
-而router-link只替换局部内容,不做整体刷新-->
-            <router-link to="/login"
-                         style="font-size: 20px;color: #0aa1ed;float:right">
-              已有账号?现在登录
+          <h1 style="font-size: 40px;width: 100%">立即註冊
+<!--router-link是腳手架工程中取代超鏈接的標籤,好處是 超鏈接跳轉會讓整個頁面刷新,
+而router-link只替換局部內容,不做整體刷新-->
+            <router-link to="/login" style="font-size: 20px;color: #0aa1ed;float:right">
+              已有賬號?現在登錄
             </router-link>
           </h1>
         </el-form-item>
-        <el-form-item label="用户名">
-          <el-input placeholder="请输入用户名" v-model="user.username"></el-input>
+        <el-form-item label="用戶名">
+          <el-input placeholder="請輸入用戶名" v-model="user.username"></el-input>
         </el-form-item>
-        <el-form-item label="密码">
-          <el-input placeholder="请输入密码" v-model="user.password"></el-input>
+        <el-form-item label="密碼">
+          <el-input placeholder="請輸入密碼" v-model="user.password"></el-input>
         </el-form-item>
-        <el-form-item label="昵称">
-          <el-input placeholder="请输入昵称" v-model="user.nickname"></el-input>
+        <el-form-item label="昵稱">
+          <el-input placeholder="請輸入昵稱" v-model="user.nickname"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="reg()">注册</el-button>
+          <el-button type="primary" @click="reg()">註冊</el-button>
         </el-form-item>
       </el-form>
     </el-col>
