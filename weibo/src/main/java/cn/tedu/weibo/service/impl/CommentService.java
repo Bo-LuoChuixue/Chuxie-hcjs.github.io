@@ -3,11 +3,13 @@ package cn.tedu.weibo.service.impl;
 import cn.tedu.weibo.mapper.CommentMapper;
 import cn.tedu.weibo.pojo.dto.CommentDTO;
 import cn.tedu.weibo.pojo.entity.Comment;
+import cn.tedu.weibo.pojo.vo.CommentVO;
 import cn.tedu.weibo.service.ICommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class CommentService implements ICommentService {
@@ -19,6 +21,12 @@ public class CommentService implements ICommentService {
         Comment comment = new Comment();
         BeanUtils.copyProperties(commentDTO, comment);
         comment.setCreated(new Date());
+
         mapper.insert(comment);
+    }
+
+    @Override
+    public List<CommentVO> listById(Long id) {
+        return mapper.selectByWeiboId(id);
     }
 }

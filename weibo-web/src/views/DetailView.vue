@@ -4,8 +4,13 @@
   <p>{{ w.created }}</p>
   <hr>
   <h3>評論相關</h3>
-  <el-input placeholder="說點兒啥..." v-model="c.content"></el-input>
+  <el-input placeholder="輸入評論內容" v-model="c.content"></el-input>
   <el-button @click="postComment()">評論</el-button>
+  <hr>
+  <div v-for="comment in commentArr">
+    <h4>{{comment.nickname}}說：{{comment.content}}</h4>
+    <p style="font-size: 12px;color: #666;margin: 0">{{comment.created}}</p>
+  </div>
 </template>
 
 <script setup>
@@ -40,6 +45,7 @@ const postComment = () => {
         }
       })
 }
+const commentArr = ref([]);
 onMounted(() => {
   //得到地址欄中的微博id
   let id = new URLSearchParams(location.search).get('id');
@@ -49,6 +55,13 @@ onMounted(() => {
       w.value = response.data.data;
     } else {
       ElMessage.error(response.data.msg);
+    }
+  })
+
+  //請求當前微博相關的評論
+  axios.get('http://localhost:8080/v1/comments/' + id).then((response) => {
+    if (response.data.code == 2001) {
+      commentArr.value = response.data.data;
     }
   })
 })
