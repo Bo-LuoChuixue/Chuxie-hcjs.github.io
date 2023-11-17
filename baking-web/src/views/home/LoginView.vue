@@ -6,7 +6,7 @@
           <el-input placeholder="請輸入用戶名" v-model="user.username"></el-input>
         </el-form-item>
         <el-form-item label="密碼">
-          <el-input type="password" placeholder="請輸入密碼" v-model="user.password"></el-input>
+          <el-input type="password" v-model="user.password" placeholder="請輸入密碼"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button style="position: relative;left: 100px" type="primary" @click="login()">登錄</el-button>
@@ -20,13 +20,15 @@
 import {ref} from "vue";
 import qs from "qs";
 import axios from "axios";
+import router from "@/router";
+import {ElMessage} from "element-plus";
 
 const user = ref({username: "", password: ""});
 const login = () => {
   let data = qs.stringify(user.value);
   axios.post('http://localhost:8080/v1/users/login', data).then((response) => {
     if (response.data.code == 2001) {
-      router.push('/')
+      router.push('/');
     } else {
       ElMessage.error(response.data.msg);
     }
