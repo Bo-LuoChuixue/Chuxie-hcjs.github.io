@@ -9,10 +9,10 @@ public class SpringMVCConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedHeaders("*") //允许任意请求头访问
-                .allowedMethods("*") //允许任意请求方式 get/post/put/delete
-                .allowedOriginPatterns("*") //允许任意域访问
-                .allowCredentials(true) //允许携带cookie/session相关信息
-                .maxAge(3600);//一小时内同一请求不再检查 直接放行
+                .allowedHeaders("*") //允許任意請求頭訪問
+                .allowedMethods("*") //允許任意請求方式 get/post/put/delete
+                .allowedOriginPatterns("*") //允許任意域訪問
+                .allowCredentials(true) //允許攜帶cookie/session相關信息
+                .maxAge(3600);//一小時內同一請求不再檢查 直接放行
     }
 }

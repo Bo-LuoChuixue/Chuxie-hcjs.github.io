@@ -3,7 +3,7 @@ package cn.tedu.weibo.pojo.dto;
 import lombok.Data;
 
 /**
- * 发表评论DTO类
+ * 發表評論DTO類
  */
 
 @Data
@@ -12,11 +12,3 @@ public class CommentDTO {
     private String content;
     private Long userId;
 }
-
-
-
-
-
-
-
-

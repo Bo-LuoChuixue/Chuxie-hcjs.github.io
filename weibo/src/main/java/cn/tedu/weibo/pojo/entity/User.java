@@ -1,12 +1,12 @@
 package cn.tedu.weibo.pojo.entity;
 
 import lombok.Data;
-
 import java.util.Date;
 
 /**
- * 用户表实体类
+ * 用戶表實體類
  */
+
 @Data
 public class User {
     private Long id;

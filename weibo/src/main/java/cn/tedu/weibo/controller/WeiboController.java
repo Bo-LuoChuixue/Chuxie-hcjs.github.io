@@ -23,7 +23,7 @@ public class WeiboController {
     @GetMapping("")  // localhost:8080/v1/weibos
     public JsonResult listForIndex(){
         List<WeiboIndexVO> list = service.listForIndex();
-        //把从数据库中查询到的装着微博对象的list集合响应给客户端
+        //把從數據庫中查詢到的裝着微博對象的list集合響應給客戶端
         return JsonResult.ok(list);
     }
     // localhost:8080/v1/weibos/210

@@ -33,12 +33,12 @@ public class UserService implements IUserService {
     @Override
     public UserVO login(UserLoginDTO userLoginDTO) {
         UserVO userVO = mapper.selectByUsername(userLoginDTO.getUsername());
-        if (userVO == null) { //用户名不存在
+        if (userVO == null) { //用戶名不存在
             throw new ServiceException(StatusCode.USERNAME_ERROR);
         }
-        if (!userVO.getPassword().equals(userLoginDTO.getPassword())){ //密码错误
+        if (!userVO.getPassword().equals(userLoginDTO.getPassword())){ //密碼錯誤
             throw new ServiceException(StatusCode.PASSWORD_ERROR);
         }
-        return userVO;//把登陆成功的用户信息传递给UserController
+        return userVO;//把登陸成功的用戶信息傳遞給UserController
     }
 }
