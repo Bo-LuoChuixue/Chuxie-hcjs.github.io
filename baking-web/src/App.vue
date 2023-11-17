@@ -11,5 +11,3 @@
 }
 
 </style>
-<script setup>
-</script>

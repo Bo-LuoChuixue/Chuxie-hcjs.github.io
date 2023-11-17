@@ -8,6 +8,8 @@ import 'element-plus/dist/index.css'
 //引入图标相关
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
+
+
 let app = createApp(App);
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)

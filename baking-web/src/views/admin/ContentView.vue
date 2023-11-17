@@ -1,5 +1,24 @@
 <template>
-
+  <el-table :data="arr">
+    <el-table-column label="编号" type="index" width="60px"></el-table-column>
+    <el-table-column label="标题" prop="title" width="150px"></el-table-column>
+    <el-table-column label="封面" width="100px">
+      <template #default="scope">
+        <img :src="scope.row.imgUrl" style="width: 80px">
+      </template>
+    </el-table-column>
+    <el-table-column label="摘要" prop="brief" width="300px"></el-table-column>
+    <el-table-column label="分类" prop="categoryName" width="80px"></el-table-column>
+    <el-table-column label="浏览量" prop="viewCount" width="80px"></el-table-column>
+    <el-table-column label="评论量" prop="commentCount" width="80px"></el-table-column>
+    <el-table-column label="创建时间" prop="createTime" width="180px"></el-table-column>
+    <el-table-column label="操作" width="200px">
+      <template #default="scope">
+        <el-button type="success">编辑</el-button>
+        <el-button type="danger">删除</el-button>
+      </template>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script setup>

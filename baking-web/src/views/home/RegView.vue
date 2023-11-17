@@ -19,16 +19,16 @@
           </h1>
         </el-form-item>
         <el-form-item label="用户名">
-          <el-input placeholder="请输入用户名"></el-input>
+          <el-input placeholder="请输入用户名" v-model="user.username"></el-input>
         </el-form-item>
         <el-form-item label="密码">
-          <el-input placeholder="请输入密码"></el-input>
+          <el-input placeholder="请输入密码" v-model="user.password"></el-input>
         </el-form-item>
         <el-form-item label="昵称">
-          <el-input placeholder="请输入昵称"></el-input>
+          <el-input placeholder="请输入昵称" v-model="user.nickname"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary">注册</el-button>
+          <el-button type="primary" @click="reg()">注册</el-button>
         </el-form-item>
       </el-form>
     </el-col>
@@ -37,7 +37,22 @@
 </template>
 
 <script setup>
-
+import {ref} from "vue";
+import qs from 'qs';
+import axios from 'axios';
+import router from "@/router";
+import {ElMessage} from 'element-plus'
+const  user = ref({username:"",password:"",nickname:""});
+const reg = ()=>{
+  let data = qs.stringify(user.value);
+  axios.post('http://localhost:8080/v1/users/reg',data).then((response)=>{
+    if (response.data.code==2001){
+      router.push('/login');
+    }else{
+      ElMessage.error(response.data.msg);
+    }
+  })
+}
 </script>
 
 <style scoped>

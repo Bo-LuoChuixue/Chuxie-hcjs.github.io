@@ -2,7 +2,7 @@
   <el-card>
     <el-form label-width="100px" style="width: 500px">
       <el-form-item label="头像">
-        <!--    上传组件开始    -->
+<!--    上传组件开始    -->
         <el-upload
             v-model:file-list="fileList"
             action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
@@ -15,7 +15,7 @@
         <el-dialog v-model="dialogVisible">
           <img w-full :src="dialogImageUrl" alt="Preview Image" />
         </el-dialog>
-        <!--    上传组件结束    -->
+<!--    上传组件结束    -->
       </el-form-item>
       <el-form-item label="昵称">
         <el-input placeholder="请输入昵称"></el-input>
@@ -49,7 +49,7 @@ const handleRemove = (uploadFile, uploadFiles) => {
 
 const handlePictureCardPreview = (uploadFile) => {
   dialogImageUrl.value = uploadFile.url
-  dialogVisible.value = true
+      dialogVisible.value = true
 }
 /*********上传相关结束**********/
 </script>
