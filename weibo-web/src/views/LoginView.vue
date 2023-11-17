@@ -11,11 +11,11 @@ const login = () => {
   axios.post('http://localhost:8080/v1/users/login', data)
       .then((response) => {
         if (response.data.code == 1001) {
-          ElMessage.success('欢迎' + response.data.data.nickname)
-          //把登录成功的用户信息保存到localStorage中，这样在首页就可以访问到
-          //localStorage中只能保存字符串数据不能保存对象，所以需要将对象转成JSON字符串
+          ElMessage.success('歡迎' + response.data.data.nickname)
+          //把登錄成功的用戶信息保存到localStorage中，這樣在首頁就可以訪問到
+          //localStorage中只能保存字符串數據不能保存對象，所以需要將對象轉成JSON字符串
           localStorage.user = JSON.stringify(response.data.data);
-          router.push('/');//返回首页
+          router.push('/');//返回首頁
         } else {
           ElMessage.error(response.data.msg);
         }
@@ -24,17 +24,17 @@ const login = () => {
 </script>
 
 <template>
-  <h1>登录页面</h1>
+  <h1>登錄頁面</h1>
   <el-card style="width: 400px;margin: 0 auto">
     <el-form label-width="80px">
-      <el-form-item label="用户名">
-        <el-input placeholder="请输入用户名" v-model="user.username"></el-input>
+      <el-form-item label="用戶名">
+        <el-input placeholder="請輸入用戶名" v-model="user.username"></el-input>
       </el-form-item>
-      <el-form-item label="密码">
-        <el-input placeholder="请输入密码" type="password" v-model="user.password"></el-input>
+      <el-form-item label="密碼">
+        <el-input placeholder="請輸入密碼" type="password" v-model="user.password"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button @click="login()">登录</el-button>
+        <el-button @click="login()">登錄</el-button>
       </el-form-item>
     </el-form>
   </el-card>

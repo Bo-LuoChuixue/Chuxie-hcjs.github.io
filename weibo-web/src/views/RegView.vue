@@ -1,18 +1,18 @@
 <template>
-  <h1>注册页面</h1>
+  <h1>註冊頁面</h1>
   <el-card>
     <el-form label-width="100px">
-      <el-form-item label="用户名">
+      <el-form-item label="用戶名">
         <el-input v-model="user.username"></el-input>
       </el-form-item>
-      <el-form-item label="密码">
+      <el-form-item label="密碼">
         <el-input v-model="user.password"></el-input>
       </el-form-item>
-      <el-form-item label="昵称">
+      <el-form-item label="昵稱">
         <el-input v-model="user.nickname"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button @click="reg()">注册</el-button>
+        <el-button @click="reg()">註冊</el-button>
       </el-form-item>
     </el-form>
   </el-card>
@@ -25,17 +25,17 @@ import {ElMessage} from "element-plus";
 
 const user = ref({username: "", password: "", nickname: ""});
 const reg = () => {
-  //将user对象转成查询字符串
+  //將user對象轉成查詢字符串
   let data = qs.stringify(user.value);
   console.log(data);
 
-  //向服务器发出请求
+  //向服務器發出請求
   axios.post('http://localhost:8080/v1/users/reg', data).then((response) => {
-    console.log(response.data);//response对象里装着服务器响应的内容  response.data得到服务器响应的数据
+    console.log(response.data);//response對象里裝着服務器響應的內容  response.data得到服務器響應的數據
     if (response.data.code==2001){
       router.push('/');
     }else {
-      ElMessage.error("用户名已存在！");
+      ElMessage.error("用戶名已存在！");
     }
   })
 }
