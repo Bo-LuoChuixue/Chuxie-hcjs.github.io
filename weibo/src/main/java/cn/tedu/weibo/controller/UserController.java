@@ -25,8 +25,9 @@ public class UserController {
 
     @PostMapping("login")
     public JsonResult login(UserLoginDTO userLoginDTO) {
-        System.out.println("userLoginDTO=" + userLoginDTO);
+        //System.out.println("userLoginDTO = " + userLoginDTO);
         UserVO userVO = service.login(userLoginDTO);
+        //把登錄成功的用戶信息響應給客戶端
         return new JsonResult(StatusCode.LOGIN_SUCCESS, userVO);
     }
 }

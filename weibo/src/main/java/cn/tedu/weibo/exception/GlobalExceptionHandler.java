@@ -91,10 +91,3 @@ public class GlobalExceptionHandler {
         return new JsonResult(StatusCode.THROWABLE_ERROR, data);
     }*/
 }
-
-
-
-
-
-
-

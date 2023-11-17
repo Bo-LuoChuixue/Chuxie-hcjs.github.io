@@ -3,11 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tedu.weibo.mapper.UserMapper">
-<select id="selectByUsername" resultType="cn.tedu.weibo.pojo.vo.UserVO">
-    select id,password,nickname
-    from user where username=#{username}
-</select>
+    <select id="selectByUsername" resultType="cn.tedu.weibo.pojo.vo.UserVO">
+        SELECT id, password, nickname
+        FROM user
+        WHERE username = #{username}
+    </select>
     <insert id="insert">
-        insert into user values(null,#{username},#{password},#{nickname},#{created})
+        INSERT INTO user
+        VALUES (NULL, #{username}, #{password}, #{nickname}, #{created})
     </insert>
 </mapper>
