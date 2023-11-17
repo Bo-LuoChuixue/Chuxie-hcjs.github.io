@@ -2,9 +2,10 @@ package cn.tedu.baking.service;
 
 import cn.tedu.baking.pojo.dto.UserLoginDTO;
 import cn.tedu.baking.pojo.dto.UserRegDTO;
+import cn.tedu.baking.pojo.vo.UserVO;
 
 public interface IUserService {
     void reg(UserRegDTO userRegDTO);
 
-    void login(UserLoginDTO userLoginDTO);
+    UserVO login(UserLoginDTO userLoginDTO);
 }

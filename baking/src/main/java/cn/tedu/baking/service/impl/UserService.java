@@ -32,7 +32,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void login(UserLoginDTO userLoginDTO) {
+    public UserVO login(UserLoginDTO userLoginDTO) {
         UserVO userVO = mapper.selectByUsername(userLoginDTO.getUsername());
         if (userVO == null) {
             throw new ServiceException(StatusCode.USERNAME_ERROR);
@@ -40,5 +40,6 @@ public class UserService implements IUserService {
         if (!userVO.getPassword().equals(userLoginDTO.getPassword())) {
             throw new ServiceException(StatusCode.PASSWORD_ERROR);
         }
+        return userVO;
     }
 }

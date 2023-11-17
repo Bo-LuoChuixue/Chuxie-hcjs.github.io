@@ -23,7 +23,7 @@
         <el-input placeholder="請輸入昵稱"></el-input>
       </el-form-item>
       <el-form-item label="用戶名">
-        <el-input value="tom" disabled></el-input>
+        <el-input value="李知恩" disabled></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary">保存修改</el-button>

@@ -21,8 +21,8 @@ public class UserController {
     }
     @PostMapping("login")
     public JsonResult login(UserLoginDTO userLoginDTO){
-        service.login(userLoginDTO);
-        return JsonResult.ok();
+
+        return JsonResult.ok(service.login(userLoginDTO));
     }
 
 }

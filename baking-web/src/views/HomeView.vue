@@ -1,6 +1,7 @@
 <template>
   <el-container>
     <!--el-header的高度不能通過css樣式 必須使用height屬性-->
+
     <el-header style="background-color: white" height="80px">
       <div style="width: 1200px;margin: 0 auto">
         <el-row :gutter="10">
@@ -8,6 +9,7 @@
             <router-link to="/">
               <img src="/imgs/icon.png" width="200">
             </router-link>
+
           </el-col>
           <el-col :span="10">
             <el-menu mode="horizontal" active-text-color="orange">
@@ -24,9 +26,14 @@
             </el-input>
           </el-col>
           <el-col :span="2">
-            <el-popover placement="bottom" title="歡迎訪問烘焙坊" :width="200" trigger="hover">
+            <el-popover v-if="user==null"
+                        placement="bottom"
+                        title="歡迎訪問烘焙坊"
+                        :width="200" trigger="hover"
+            >
               <template #reference>
-                <el-icon style="position: relative;top: 20px" size="25">
+                <el-icon style="position: relative;top: 20px"
+                         size="25">
                   <User/>
                 </el-icon>
               </template>
@@ -35,9 +42,27 @@
                 <el-button type="warning" @click="login()">登錄</el-button>
               </div>
             </el-popover>
+            <el-popover v-else
+                        placement="bottom"
+                        title="歡迎訪問烘焙坊"
+                        :width="200" trigger="hover"
+            >
+              <template #reference>
+                <el-icon style="position: relative;top: 20px"
+                         size="25">
+                  <User/>
+                </el-icon>
+              </template>
+              <div style="text-align: center">
+                <el-button type="info" @click="router.push('/personal')">個人中心</el-button>
+                <el-button type="warning" @click="logout()">退出登錄</el-button>
+                <el-button type="danger" @click="router.push('/admin')">後台管理頁面</el-button>
+              </div>
+            </el-popover>
           </el-col>
         </el-row>
       </div>
+
     </el-header>
     <el-main>
       <router-view/>
@@ -92,6 +117,16 @@
 //導入搜索圖標  显示在按鈕裏面的圖標需要單獨導入
 import {Search} from '@element-plus/icons-vue'
 import router from "@/router";
+import {ref} from "vue";
+
+const logout = () => {
+  if (confirm("您確認退出登錄嗎?")) {
+    localStorage.clear();
+    user.value = null;
+  }
+}
+
+const user = ref(localStorage.user ? JSON.parse(localStorage.user) : null);
 
 const reg = () => {
   router.push('/reg');//跳轉到註冊頁面

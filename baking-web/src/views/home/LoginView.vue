@@ -28,7 +28,9 @@ const login = () => {
   let data = qs.stringify(user.value);
   axios.post('http://localhost:8080/v1/users/login', data).then((response) => {
     if (response.data.code == 2001) {
-      router.push('/');
+      localStorage.user = JSON.stringify(response.data.data);
+      //router.push('/');
+      location.href = '/';//返回首頁並刷新頁面
     } else {
       ElMessage.error(response.data.msg);
     }
