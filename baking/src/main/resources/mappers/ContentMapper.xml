@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.baking.mapper.ContentMapper">
+    <insert id="insert">
+        INSERT INTO t_content
+        (title, img_url, video_url, content, type, view_count,
+         comment_count, create_by, create_time, brief,
+         category_id)
+         VALUES (#{title},#{imgUrl},#{videoUrl},#{content},#{type},0,0,
+                 #{createBy},#{createTime},#{brief},#{categoryId})
+    </insert>
+
+    <select id="selectForManagement"
+            resultType="cn.tedu.baking.pojo.vo.ContentManagementVO">
+        SELECT c.id,title,img_url,brief,c.type,cat.name categoryName,
+               view_count,comment_count,c.create_time
+        FROM t_content c JOIN t_category cat ON c.category_id=cat.id
+        WHERE c.create_by=#{userId} AND c.type=#{type}
+        ORDER BY c.create_time DESC
+    </select>
+    <delete id="deleteById">
+        DELETE FROM t_content WHERE id=#{id}
+    </delete>
+    <select id="selectForUpdateById"
+            resultType="cn.tedu.baking.pojo.vo.ContentUpdateVO">
+        SELECT id,title,content,img_url,video_url,type,category_id
+        FROM t_content WHERE id=#{id}
+    </select>
+    <update id="update">
+        UPDATE t_content
+        <set>
+            <if test="title!=null">title=#{title},</if>
+            <if test="imgUrl!=null">img_url=#{imgUrl},</if>
+            <if test="videoUrl!=null">video_url=#{videoUrl},</if>
+            <if test="type!=null">type=#{type},</if>
+            <if test="categoryId!=null">category_id=#{categoryId},</if>
+            <if test="updateTime!=null">update_time=#{updateTime},</if>
+            <if test="brief!=null">brief=#{brief},</if>
+            <if test="content!=null">content=#{content},</if>
+        </set>
+            WHERE id=#{id}
+    </update>
+
+</mapper>
+
+
+
+
+
+
+
+

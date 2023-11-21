@@ -9,4 +9,6 @@ public interface UserMapper {
     UserVO selectByUsername(String username);
 
     int insert(User user);
+
+    int update(User user);
 }
