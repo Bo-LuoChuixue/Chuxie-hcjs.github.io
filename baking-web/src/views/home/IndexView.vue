@@ -11,10 +11,9 @@
      <p style="font-size: 28px;margin: 10px">烘焙食谱</p>
    </el-col>
    <el-col :span="21">
-      <el-menu mode="horizontal" default-active="1" active-text-color="orange">
-        <el-menu-item index="1">全部</el-menu-item>
-        <el-menu-item index="2">面包</el-menu-item>
-        <el-menu-item index="3">零食</el-menu-item>
+      <el-menu mode="horizontal" default-active="0" active-text-color="orange">
+        <el-menu-item index="0">全部</el-menu-item>
+        <el-menu-item v-for="c in recipeCategoryArr" :index="c.id">{{c.name}}</el-menu-item>
       </el-menu>
    </el-col>
   </el-row>
@@ -49,10 +48,10 @@
       <p style="font-size: 28px;margin: 10px">烘焙视频</p>
     </el-col>
     <el-col :span="21">
-      <el-menu mode="horizontal" default-active="1" active-text-color="orange">
-        <el-menu-item index="1">全部</el-menu-item>
-        <el-menu-item index="2">面包教学</el-menu-item>
-        <el-menu-item index="3">零食教学</el-menu-item>
+      <el-menu mode="horizontal" default-active="0" active-text-color="orange">
+        <el-menu-item index="0">全部</el-menu-item>
+        <el-menu-item v-for="c in videoCategoryArr" :index="c.id">{{c.name}}</el-menu-item>
+
       </el-menu>
     </el-col>
   </el-row>
@@ -84,10 +83,10 @@
       <p style="font-size: 28px;margin: 10px">行业资讯</p>
     </el-col>
     <el-col :span="21">
-      <el-menu mode="horizontal" default-active="1" active-text-color="orange">
-        <el-menu-item index="1">全部</el-menu-item>
-        <el-menu-item index="2">美食资讯</el-menu-item>
-        <el-menu-item index="3">店家资讯</el-menu-item>
+      <el-menu mode="horizontal" default-active="0" active-text-color="orange">
+        <el-menu-item index="0">全部</el-menu-item>
+        <el-menu-item v-for="c in infoCategoryArr" :index="c.id">{{c.name}}</el-menu-item>
+
       </el-menu>
     </el-col>
   </el-row>
@@ -115,8 +114,33 @@
 </div>
 </template>
 
-<script>
+<script setup>
+import {onMounted, ref} from "vue";
+import axios from "axios";
 
+const recipeCategoryArr = ref([]);
+const videoCategoryArr = ref([]);
+const infoCategoryArr = ref([]);
+
+onMounted(()=>{
+  //请求三个分类下的二级分类
+  axios.get(BASE_URL+'/v1/categories/1').then((response)=>{
+    if (response.data.code==2001){
+      recipeCategoryArr.value = response.data.data;
+    }
+  })
+  axios.get(BASE_URL+'/v1/categories/2').then((response)=>{
+    if (response.data.code==2001){
+      videoCategoryArr.value = response.data.data;
+    }
+  })
+  axios.get(BASE_URL+'/v1/categories/3').then((response)=>{
+    if (response.data.code==2001){
+      infoCategoryArr.value = response.data.data;
+    }
+  })
+
+})
 </script>
 
 <style scoped>

@@ -54,7 +54,7 @@ const del = (i,c)=>{
       if (response.data.code==2001){
         ElMessage.success("删除完成!");
         //从数组中删除内容, 页面会自动跟着改变
-        arr.value.splice(0,1);
+        arr.value.splice(i,1);
       }
     })
   }
